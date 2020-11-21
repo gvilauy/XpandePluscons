@@ -120,13 +120,13 @@ public class CopiarAdjuntos extends SvrProcess {
                             MZGPCAttachConfRem attachConfRem = this.attachConf.getRemitente(remitente);
                             if ((attachConfRem != null) && (attachConfRem.get_ID() > 0)){
                                 String fileName = part.getFileName();
-                                part.saveFile("/tmp/" + fileName);
+                                part.saveFile("C:\\Adempiere\\emails\\" + fileName);
 
-                                File fileAdjunto = new File("/tmp/" + fileName);
-                                Path sourcePath = Paths.get("/tmp/" + fileName);
+                                File fileAdjunto = new File("C:\\Adempiere\\emails\\" + fileName);
+                                Path sourcePath = Paths.get("C:\\Adempiere\\emails\\" + fileName);
 
-                                Path targetPath = Paths.get("/srv/" + fileName);
-                                //Path targetPath = Paths.get(attachConfRem.getFolder().trim() + fileName);
+                                //Path targetPath = Paths.get("C:\\Adempiere\\emails\\dest\\" + fileName);
+                                Path targetPath = Paths.get(attachConfRem.getFolder().trim() + fileName);
                                 
                                 try{
                                     Files.copy(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
